@@ -1,0 +1,159 @@
+<!DOCTYPE HTML5>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Multiple Selects Linked</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="trialCSS3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin=""></script>
+	<script type="text/javascript" src="trialJSS3.js" crossorigin=""></script>
+</head>
+<body onload="LoadFile('testing1.csv','text','text/plain;charset=utf-8',TracerOn,this.value)">
+	<fieldset>
+		<h1>HPE Telco Redhat CEPH Configuration Sizer</h1>
+
+		<div class=button>
+			<button type="button">Help</button>
+			<button type="button">About</button>
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<div class="div1">
+			<label for="demo1">Platform</label>
+			<select id="demo1" onchange="LoadFile('testing3.csv','text','text/plain;charset=utf-8',TracerOn1,this.value)">
+				<option selected="selected" disabled="disabled" hidden="true"></option>
+				<option disabled="disabled">Platform</option>
+			</select>
+		</div>
+
+		<div class="div2">
+			<label for="demo2">Storage Tier</label>
+			<select id="demo2" onchange="LoadFile('testing3.csv','text','text/plain;charset=utf-8',TracerOn2,this.value);LoadFile('testing3.csv','text','text/plain;charset=utf-8',TracerOnDataPro,this.value);">
+				<option selected="selected" disabled="disabled" hidden="true"></option>
+				<option disabled="disabled">Storage Tier</option>
+			</select>
+		</div>
+
+		<div class="div3">
+			<label for="demo3">Storage Backend</label>
+			<select id="demo3" onchange="TracerOn3()">
+				<option selected="selected" disabled="disabled" hidden="true"></option>
+				<option disabled="disabled">Storage Backend</option>
+				<option value="FileStore">File Store</option>
+				<option value="BlueStore">Blue Store</option>
+			</select>
+		</div>
+		<div class="checkboxes1">
+			<input type="checkbox" name="compliance" disabled="disabled">Compliance to NEBS <br>
+			<input type="checkbox" name="hyper" disabled="disabled">Hyper Converged <br>
+		</div>
+	</fieldset>
+	<!--<fieldset>
+		<p>Storage tier: ALL NVMe ideal for very low latency and throughput applications</p>
+	</fieldset>-->
+	<fieldset>
+		<!--<h3>Input</h3>-->
+
+		<div class="div4">
+			<label for="demo4">OSD Drives</label>
+			<select id="demo4" onchange="LoadFile('testing3.csv','text','text/plain;charset=utf-8',TracerOn4,this.value)">
+				<option selected="selected" disabled="disabled" hidden="true"></option>
+				<option disabled="disabled">Select OSD Drives</option>
+			</select>
+		</div>
+
+		<div class="div5">
+			<label for="demo5">Number of Drives</label>
+			<input type="number" id="demo5" min="1" max="24" step="1" placeholder="1-24" onchange="TracerOn5()">
+		</div>
+		<div class="journal">
+			<label for="journalNo">Journal Disks</label>
+			<input type="number" id="journalNo" disabled="">
+		</div>
+		<div class="div6">
+			<label for="demo6">Data Protection</label>
+			<select id="demo6" onchange="TracerOn6()">
+				<option selected="selected" disabled="disabled" hidden="true"></option>
+				<option disabled="disabled">Replication Needed</option>
+				<!--<option value="ReplicationFactor2">Replication *2</option>
+				<option value="ReplicationFactor3">Replication *3</option>-->
+			</select>
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<div class="div7">
+			<label for="demo7">Workload Type</label>
+			<select id="demo7" onchange="TracerOn7()">
+				<option selected="selected" disabled="disabled" hidden="true"></option>
+				<option disabled="disabled">Type of Workload</option>
+				<option value="Random">Random</option>
+				<option value="Sequential">Sequential</option>
+			</select>
+		</div>
+
+		<div class="div8">
+			<label for="demo8">Block Size</label>
+			<select id="demo8" onchange="TracerOn8()">
+				<option selected="selected" disabled="disabled" hidden="true"></option>
+				<option disabled="disabled">Select Block Size</option>
+				<option value="512B">512 Bytes</option>
+				<option value="1k">1K</option>
+				<option value="4k">4K</option>
+				<option value="8k">8K</option>
+				<option value="16k">16K</option>
+				<option value="32k">32K</option>
+				<option value="64k">64K</option>
+				<option value="128k">128K</option>
+				<option value="256k">256K</option>
+			</select>
+		</div>
+
+		<div class="div9">
+			<label for="demo9">R/W Mix</label>
+			<select id="demo9" onchange="TracerOn9()">
+				<option selected="selected" disabled="disabled" hidden="true"></option>
+				<option disabled="disabled">Read/Write Mix</option>
+				<option value="100R0W">100 Read</option>
+				<option value="90R10W">90Read/10Write</option>
+				<option value="75R25W">75Read/25Write</option>
+				<option value="30R70W">30Read/70Write</option>
+				<option value="50R50W">50Read/50Write</option>
+				<option value="70R30W">70Read/30Write</option>
+				<option value="30R70W">30Read/70Write</option>
+				<option value="10R90W">90Write/10Read</option>
+				<option value="20R80W">20Read/80Write</option>
+				<option value="80R20W">80Read/20Write</option>
+				<option value="0R100W">100Write</option>
+			</select>
+		</div>
+
+		<div class="div10">
+			<label for="demo10">Journaling/WAL %</label>
+			<input type="number" id="demo10" disabled="" value="4"> %<br>
+		</div>
+
+		<div class="div11">
+			<label for="demo11">Journaling Drives Model</label>
+			<select id="demo11" onchange="TracerOn11()">
+				<option selected="selected" disabled="disabled" hidden="true"></option>
+			</select>
+		</div>
+	</fieldset>
+	<fieldset>
+		<input type="submit" name="submit" onclick="display()">
+	</fieldset>
+	<fieldset>	
+		<div id="dispdiv1">
+		</div>
+		<div id="dispdiv2">
+		</div>
+		<div id="dispdiv3">
+		</div>
+	</fieldset>
+</body>
+</html>

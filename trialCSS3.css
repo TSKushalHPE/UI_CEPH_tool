@@ -1,0 +1,75 @@
+label{
+	display: block;
+}
+
+h1{
+	text-align: center;
+	font-size: 20px;
+	border-style: solid;
+	margin: auto;
+	width: 45%;
+	border-spacing: 15px 15px;
+}
+
+fieldset{
+	border-color: white;
+	border-width: 0px;
+}
+		
+.div1, .div2, .div3{
+	float: left;
+	box-sizing: border-box;
+	padding: 5px;
+	text-align: center;
+	width: 20%;
+}
+
+.div4{
+	float: left;
+	box-sizing: border-box;
+	padding: 10px;
+	width: 50%;
+}
+		
+.div5, .div6, .div7, .div8, .div9, .div10, .div11, .journal{
+	float: left;
+	box-sizing: border-box;
+	padding: 10px;
+	width: 20%;
+}
+
+.button{
+	float: right;
+	box-sizing: border-box;
+}
+		
+.checkboxes1{
+	float: right;
+	box-sizing: border-box;
+	width: 30%;
+	padding: 10px;
+}
+
+#dispdiv1{
+	float: left;
+	width: 20%;
+	padding: 10px;
+	border-collapse: collapse;
+	box-sizing: border-box;
+}
+
+#dispdiv2{
+	float: left;
+	width: 20%;
+	padding: 10px;
+	border-collapse: collapse;
+	box-sizing: border-box;
+}
+
+#dispdiv3{
+	float: left;
+	width: 20%;
+	padding: 10px;
+	border-collapse: collapse;
+	box-sizing: border-box;
+}
